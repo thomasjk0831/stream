@@ -14,24 +14,36 @@ const breakPoints = [
 function Header(props) {
     let history = useHistory()
     const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`/movie/popular?api_key=${API_KEY}&language=en-US`)
             .then(res => {
-                console.log("header", res)
+                //dont display Header DOM until fully loaded
+
+                setLoading(false)
                 //array too long. decided to cut it to half the size
-                setMovies(res.data.results.filter((item, index) => index % 2))
+
+                // setMovies(res.data.results.filter((item, index) => index % 2))
+                setMovies(res.data.results)
             })
             .catch(err => {
                 console.log(err)
             })
     }, [])
 
+
+
     const clickHandler = (id) => {
         history.push(`/${id}`)
     }
 
-    return (
+    if (loading) {
+        return <div className="navbar">
+            <img className="logo" src="./img/logo3.png" alt="logo" />
+        </div>
+    }
+    else return (
         <>
             <div className="navbar">
                 <img className="logo" src="./img/logo3.png" alt="logo" />

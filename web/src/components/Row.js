@@ -17,11 +17,13 @@ const breakPoints = [
 function Row(props) {
     const history = useHistory()
     const [movies, setMovies] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         axios.get(props.fetchUrl)
             .then(res => {
                 setMovies(res.data.results)
+                setIsLoading(false)
             })
             .catch(err => {
                 console.log(err)
@@ -32,7 +34,9 @@ function Row(props) {
         history.push(`/${id}`)
     }
 
-    return (
+    if (isLoading)
+        return null
+    else return (
         <div className="row">
             <h2 className="title">{props.title}</h2>
 
