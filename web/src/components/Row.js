@@ -21,7 +21,6 @@ function Row(props) {
     useEffect(() => {
         axios.get(props.fetchUrl)
             .then(res => {
-                console.log(res.data.results)
                 setMovies(res.data.results)
             })
             .catch(err => {
