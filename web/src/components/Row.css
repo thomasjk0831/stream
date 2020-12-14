@@ -1,0 +1,49 @@
+.row {
+  /* border: 1px solid white; */
+  margin-top: 20px;
+}
+
+.title {
+  margin: 0 0 20px 85px;
+}
+
+.row_posters {
+  display: flex;
+}
+
+.row_poster {
+  width: 100%;
+  object-fit: contain;
+  max-height: 340px;
+  transition: transform 490ms;
+  cursor: pointer;
+}
+
+.row_poster:hover {
+  transform: scale(1.2);
+}
+
+.rec.rec-arrow {
+  border-radius: 0;
+  height: 200px;
+  /* background-color: #232323; */
+  background-color: black;
+  color: purple;
+}
+.rec.rec-arrow:hover {
+}
+
+.rec.rec-dot {
+  visibility: hidden;
+}
+
+/* .ikyGAt {
+  border-radius: 0;
+} */
+
+@media (max-width: 1300px) {
+  .title {
+    text-align: center;
+    transform: translateX(-40px);
+  }
+}

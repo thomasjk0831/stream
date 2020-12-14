@@ -1,0 +1,19 @@
+.movie-player-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+}
+
+.close-player{
+    text-align: end;
+    width: 1200px;
+    margin-bottom: 10px;
+}
+
+.fa-times-circle{
+    font-size: 40px;
+    text-decoration: none;
+}
