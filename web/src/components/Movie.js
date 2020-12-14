@@ -9,7 +9,7 @@ function Movie() {
     const [youtubeKey, setYoutubeKey] = useState('')
 
     useEffect(() => {
-        axios.get(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=6d0c4c775463ca5290316fa0398e562b`)
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=6d0c4c775463ca5290316fa0398e562b`)
             .then(res => {
                 setYoutubeKey(res.data.results[0].key)
             })
