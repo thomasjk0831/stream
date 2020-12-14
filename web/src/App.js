@@ -12,13 +12,13 @@ function App(props) {
       <Route exact path='/'>
         <Header />
 
-        {
+        {/* {
           apiCalls.map(item => <Row title={item.title} fetchUrl={item.fetchUrl} />)
-        }
+        } */}
       </Route>
-      <Route exact path='/:id'>
+      {/* <Route exact path='/:id'>
         <Movie />
-      </Route>
+      </Route> */}
     </div>
   )
 }
