@@ -23,9 +23,7 @@ function Header(props) {
 
                 setLoading(false)
                 //array too long. decided to cut it to half the size
-
-                // setMovies(res.data.results.filter((item, index) => index % 2))
-                setMovies(res.data.results)
+                setMovies(res.data.results.filter((item, index) => index % 2))
             })
             .catch(err => {
                 console.log(err)
