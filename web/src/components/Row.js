@@ -21,6 +21,7 @@ function Row(props) {
     useEffect(() => {
         axios.get(props.fetchUrl)
             .then(res => {
+                console.log(res.data.results)
                 setMovies(res.data.results)
             })
             .catch(err => {
@@ -40,6 +41,7 @@ function Row(props) {
                 <Carousel breakPoints={breakPoints}>
 
                     {movies.map(movie => {
+
                         return <img onClick={() => clickHandler(movie.id)} className="row_poster" src={`${baseUrl}${movie.poster_path}`} alt={movie.title} />
                     })}
                 </Carousel>
