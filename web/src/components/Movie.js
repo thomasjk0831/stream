@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { useParams, NavLink } from 'react-router-dom'
 import axios from '../data/axios'
+import ReactLoading from 'react-loading'
 import './Movie.css'
 
 function Movie() {
@@ -21,6 +22,7 @@ function Movie() {
 
     return (
         <div className="movie-player-container">
+
             <div className="close-player">
 
                 <NavLink to="/"><i class="fa fa-times-circle"></i></NavLink>

@@ -34,9 +34,6 @@ function Row(props) {
         history.push(`/${id}`)
     }
 
-    // if (isLoading)
-    //     return null
-    // else 
     return (
         <div className="row">
             <h2 className="title">{props.title}</h2>
