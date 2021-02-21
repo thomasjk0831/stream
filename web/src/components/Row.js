@@ -23,7 +23,7 @@ function Row(props) {
         axios.get(props.fetchUrl)
             .then(res => {
                 setMovies(res.data.results)
-                setIsLoading(false)
+                // setIsLoading(false)
             })
             .catch(err => {
                 console.log(err)
@@ -34,9 +34,10 @@ function Row(props) {
         history.push(`/${id}`)
     }
 
-    if (isLoading)
-        return null
-    else return (
+    // if (isLoading)
+    //     return null
+    // else 
+    return (
         <div className="row">
             <h2 className="title">{props.title}</h2>
 

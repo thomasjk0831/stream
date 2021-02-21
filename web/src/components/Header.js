@@ -21,9 +21,12 @@ function Header(props) {
             .then(res => {
                 //dont display Header DOM until fully loaded
 
-                setLoading(false)
+                // setLoading(false)
                 //array too long. decided to cut it to half the size
-                setMovies(res.data.results.filter((item, index) => index % 2))
+                // setMovies(res.data.results.filter((item, index) => index % 2))
+                setMovies(res.data.results)
+                setLoading(false)
+
             })
             .catch(err => {
                 console.log(err)
@@ -41,37 +44,38 @@ function Header(props) {
             <img className="logo" src="./img/logo3.png" alt="logo" />
         </div>
     }
-    else return (
-        <>
-            <div className="navbar">
-                <img className="logo" src="./img/logo3.png" alt="logo" />
-            </div>
-            <div className="main-container">
-                <Carousel>
-                    {
-                        movies.map(movie => {
-                            return (<div className="banner"
-                                style={{
-                                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-                                }}>
+    else
+        return (
+            <>
+                <div className="navbar">
+                    <img className="logo" src="./img/logo3.png" alt="logo" />
+                </div>
+                <div className="main-container">
+                    <Carousel>
+                        {
+                            movies.map(movie => {
+                                return (<div className="banner"
+                                    style={{
+                                        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+                                    }}>
 
-                                <div className="banner-content">
-                                    <div className="banner-header">
-                                        <h1>{movie.title}</h1>
-                                        <div onClick={() => clickHandler(movie.id)} className="play">PLAY</div>
+                                    <div className="banner-content">
+                                        <div className="banner-header">
+                                            <h1>{movie.title}</h1>
+                                            <div onClick={() => clickHandler(movie.id)} className="play">PLAY</div>
+                                        </div>
+                                        <p>{movie.overview}</p>
                                     </div>
-                                    <p>{movie.overview}</p>
                                 </div>
-                            </div>
-                            )
-                        })
-                    }
-                </Carousel>
-            </div>
+                                )
+                            })
+                        }
+                    </Carousel>
+                </div>
 
 
-        </>
-    )
+            </>
+        )
 }
 
 export default Header
